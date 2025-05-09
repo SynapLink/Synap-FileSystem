@@ -1,0 +1,3 @@
+@echo off
+echo starting synap editor (c# version)...
+start "" "SynapEditor\bin\Release\net6.0-windows\win-x64\publish\SynapEditor.exe" 

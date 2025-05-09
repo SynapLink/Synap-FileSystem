@@ -1,0 +1,108 @@
+<Window x:Class="SynapEditor.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings and Customization" Height="400" Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <TextBlock Text="Settings and Customization" FontSize="18" FontWeight="Bold" Grid.Row="0" Margin="0,0,0,15"/>
+        
+        <!-- Settings Content -->
+        <TabControl Grid.Row="1">
+            <TabItem Header="Appearance">
+                <StackPanel Margin="15">
+                    <GroupBox Header="Theme" Margin="0,0,0,10">
+                        <StackPanel Margin="10">
+                            <RadioButton x:Name="LightThemeRadio" Content="Light Theme" IsChecked="True" Margin="0,5"/>
+                            <RadioButton x:Name="DarkThemeRadio" Content="Dark Theme" Margin="0,5"/>
+                        </StackPanel>
+                    </GroupBox>
+                    
+                    <GroupBox Header="Font" Margin="0,0,0,10">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock Text="Font Size:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                            <ComboBox x:Name="FontSizeCombo" Grid.Row="0" Grid.Column="1" Margin="0,5">
+                                <ComboBoxItem Content="Small (10pt)" Tag="10"/>
+                                <ComboBoxItem Content="Medium (12pt)" Tag="12" IsSelected="True"/>
+                                <ComboBoxItem Content="Large (14pt)" Tag="14"/>
+                                <ComboBoxItem Content="Extra Large (16pt)" Tag="16"/>
+                            </ComboBox>
+                            
+                            <TextBlock Text="Font Family:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,10,0"/>
+                            <ComboBox x:Name="FontFamilyCombo" Grid.Row="1" Grid.Column="1" Margin="0,10,0,5">
+                                <ComboBoxItem Content="Consolas (Monospace)" Tag="Consolas" IsSelected="True"/>
+                                <ComboBoxItem Content="Segoe UI (Sans-serif)" Tag="Segoe UI"/>
+                                <ComboBoxItem Content="Times New Roman (Serif)" Tag="Times New Roman"/>
+                                <ComboBoxItem Content="Courier New (Monospace)" Tag="Courier New"/>
+                            </ComboBox>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            
+            <TabItem Header="Encryption">
+                <StackPanel Margin="15">
+                    <TextBlock Text="Encryption Key Management" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,15">
+                        Your files are secured with AES-256 encryption. You can manage your encryption keys here.
+                    </TextBlock>
+                    
+                    <Button x:Name="GenerateKeyButton" Content="Generate New Encryption Key" Padding="10,5" Margin="0,5" Click="GenerateKeyButton_Click"/>
+                    <Button x:Name="ViewKeyButton" Content="View Current Key (Password Protected)" Padding="10,5" Margin="0,5" Click="ViewKeyButton_Click"/>
+                    <Button x:Name="ExportKeyButton" Content="Export Current Key" Padding="10,5" Margin="0,5" Click="ExportKeyButton_Click"/>
+                    <Button x:Name="ImportKeyButton" Content="Import Key File" Padding="10,5" Margin="0,5" Click="ImportKeyButton_Click"/>
+                    
+                    <Border BorderBrush="#FFAAAAAA" BorderThickness="1" Margin="0,15,0,0" Padding="10" Background="#FFEEEEEE">
+                        <TextBlock TextWrapping="Wrap" FontStyle="Italic">
+                            Warning: Generating a new key or importing a different key will make previously encrypted files unreadable unless you keep a backup of the original key.
+                        </TextBlock>
+                    </Border>
+                </StackPanel>
+            </TabItem>
+            
+            <TabItem Header="About">
+                <StackPanel Margin="15">
+                    <TextBlock Text="Synap Editor" FontSize="20" FontWeight="Bold"/>
+                    <TextBlock Text="Secure Text Editor with AES-256 Encryption" Margin="0,5,0,15"/>
+                    
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,10">
+                        Synap Editor is a secure text editor that encrypts your files using AES-256 encryption.
+                        All files are stored with strong encryption to protect your sensitive information.
+                    </TextBlock>
+                    
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,15">
+                        Features:
+                        • AES-256 encryption for all files
+                        • Text formatting options (bold, italic)
+                        • Customizable appearance
+                        • Portable encryption key management
+                    </TextBlock>
+                    
+                    <TextBlock Text="© Synap Editor" FontWeight="Bold"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button x:Name="ApplyButton" Content="Apply" Width="80" Margin="0,0,10,0" Click="ApplyButton_Click"/>
+            <Button x:Name="CloseButton" Content="Close" Width="80" Click="CloseButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window> 

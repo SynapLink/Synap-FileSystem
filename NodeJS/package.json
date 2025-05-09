@@ -1,0 +1,12 @@
+{
+  "name": "synap-editor",
+  "version": "1.0.0",
+  "main": "synapeditor.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^35.1.5"
+  }
+}
+
