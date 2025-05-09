@@ -1,0 +1,2 @@
+C:\Users\kalac\OneDrive\Documents\.synap\Console\SynapEditor\bin\Release\net6.0\win-x64\publish\SynapEditor.pdb
+C:\Users\kalac\OneDrive\Documents\.synap\Console\SynapEditor\bin\Release\net6.0\win-x64\publish\SynapEditor.exe
